@@ -29,7 +29,7 @@ export default function StatementForm () {
                </label>
                {createPortal(
            <Statement statement={statement} />, 
-            document.getElementById('resume-wrapper')
+            document.getElementById('resume-content')
             )}
             </div>
         </>

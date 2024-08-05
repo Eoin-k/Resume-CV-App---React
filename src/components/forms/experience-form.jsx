@@ -17,17 +17,23 @@ export default function ExperienceForm() {
 		data[index][event.target.name] = event.target.value;
 		setInputFields(data);
 	};
-    const addFields = (e) => {
-        e.preventDefault()
-        let newfield = {
+	const addFields = (e) => {
+		e.preventDefault();
+		let newfield = {
 			title: "",
 			company: "",
 			description: "",
 			datefrom: "",
 			datetill: "Present",
-		}
-        setInputFields([...inputFields, newfield])
-    }
+		};
+		setInputFields([...inputFields, newfield]);
+	};
+
+	const removeFields = (index) => {
+		let data = [...inputFields];
+		data.splice(index, 1)
+		setInputFields(data);
+	}
 
 	setTimeout(() => {
 		setLoading(false);
@@ -89,16 +95,17 @@ export default function ExperienceForm() {
 										onChange={(event) => handleFormChange(index, event)}
 									/>
 								</label>
+								<button onClick={ () => removeFields(index)}>Remove</button>
 							</div>
 						);
 					})}
 
-					<button onClick={addFields}>Add Another Job</button>
+					
 				</form>
-
+				<button onClick={addFields}>Add Another Job</button>
 				{createPortal(
 					<Experience jobs={inputFields} />,
-					document.getElementById("resume-wrapper"),
+					document.getElementById("resume-content"),
 				)}
 			</div>
 		</>
