@@ -4,10 +4,10 @@ import Experience from "../display/experience";
 export default function ExperienceForm() {
 	const [inputFields, setInputFields] = useState([
 		{
-			title: "",
-			company: "",
-			description: "",
-			datefrom: "",
+			title: "Head Manager",
+			company: "Coca-Cola",
+			description: "Done a lot of cool stuff here",
+			datefrom: "2022-09-01",
 			datetill: "Present",
 		},
 	]);
@@ -31,9 +31,9 @@ export default function ExperienceForm() {
 
 	const removeFields = (index) => {
 		let data = [...inputFields];
-		data.splice(index, 1)
+		data.splice(index, 1);
 		setInputFields(data);
-	}
+	};
 
 	setTimeout(() => {
 		setLoading(false);
@@ -95,12 +95,10 @@ export default function ExperienceForm() {
 										onChange={(event) => handleFormChange(index, event)}
 									/>
 								</label>
-								<button onClick={ () => removeFields(index)}>Remove</button>
+								<button onClick={() => removeFields(index)}>Remove</button>
 							</div>
 						);
 					})}
-
-					
 				</form>
 				<button onClick={addFields}>Add Another Job</button>
 				{createPortal(

@@ -6,9 +6,9 @@ function App() {
 			<div id="sidebar">
 				<Accordion />
 			</div>
-			<div id="resume-wrapper">
-				<div id="resume-sidebar"></div>
-				<div id="resume-content"></div>
+			<div className="resume-wrapper" id="resume-wrapper">
+				<div className="resume-sidebar" id="resume-sidebar"></div>
+				<div className="resume-content" id="resume-content"></div>
 			</div>
 		</>
 	);

@@ -4,11 +4,12 @@ import Education from "../display/education";
 export default function EducationForm() {
 	const [inputFields, setInputFields] = useState([
 		{
-			title: "",
-			institution: "",
-			description: "",
-			datefrom: "",
-			datetill: "Present",
+			title: "Master of Computer Science",
+			institution: "Harvard",
+			description:
+				"Self Explanatory you can put in a longer description about some of the things that you learned in college",
+			datefrom: "2022-08-01",
+			datetill: "",
 		},
 	]);
 	const [loading, setLoading] = useState(true);
@@ -31,9 +32,9 @@ export default function EducationForm() {
 
 	const removeFields = (index) => {
 		let data = [...inputFields];
-		data.splice(index, 1)
+		data.splice(index, 1);
 		setInputFields(data);
-	}
+	};
 
 	setTimeout(() => {
 		setLoading(false);
@@ -62,8 +63,8 @@ export default function EducationForm() {
 								<label>
 									<span>College / institute</span>
 									<input
-										value={input.company}
-										name="company"
+										value={input.institution}
+										name="institution"
 										placeholder="College / institute"
 										onChange={(event) => handleFormChange(index, event)}
 									/>
@@ -95,7 +96,7 @@ export default function EducationForm() {
 										onChange={(event) => handleFormChange(index, event)}
 									/>
 								</label>
-								<button onClick={ () => removeFields(index)}>Remove</button>
+								<button onClick={() => removeFields(index)}>Remove</button>
 							</div>
 						);
 					})}

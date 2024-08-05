@@ -15,16 +15,12 @@ const data = [
 		component: <StatementForm />,
 	},
 	{
-		heading: "jobs",
+		heading: "Work Experience",
 		component: <ExperienceForm />,
 	},
 	{
 		heading: "Education",
 		component: <EducationForm />,
-	},
-	{
-		heading: "What are these thisng",
-		component: <StatementForm />,
 	},
 	{
 		heading: "Hard Skills",

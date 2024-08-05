@@ -5,21 +5,23 @@ import Softskills from "../display/soft-skills";
 export default function SoftSkillsForm() {
 	const [fieldvalue, setFieldValue] = useState([
 		{
-			title: "",
-			value: "",
+			title: "Skill 1",
+			value: "60",
+			text: "",
 		},
 	]);
 	const handleFormChange = (index, event) => {
 		let data = [...fieldvalue];
 		data[index][event.target.name] = event.target.value;
 		setFieldValue(data);
-        console.log(data)
+		console.log(data);
 	};
 	const addFields = (e) => {
 		e.preventDefault();
 		let newfield = {
 			title: "",
 			value: "",
+			text: "",
 		};
 		setFieldValue([...fieldvalue, newfield]);
 	};
@@ -53,13 +55,17 @@ export default function SoftSkillsForm() {
 									placeholder="Title"
 									onChange={(event) => handleFormChange(index, event)}
 								/>
-                                </label>
-                                <label>
-                                    <span>Select Skill level</span>
-								<input  type="range" step="20" name="value" value={input.value} onChange={(event) => handleFormChange(index,event)} 
-                                />
 							</label>
-							
+							<label>
+								<span>Select Skill level</span>
+								<input
+									type="range"
+									step="20"
+									name="value"
+									value={input.value}
+									onChange={(event) => handleFormChange(index, event)}
+								/>
+							</label>
 
 							<button onClick={() => removeFields(index)}>Remove</button>
 						</div>
@@ -67,10 +73,10 @@ export default function SoftSkillsForm() {
 				})}
 				<button onClick={addFields}>Add More Skills</button>
 			</form>
-            {createPortal(
-					<Softskills skills={fieldvalue} />,
-					document.getElementById("resume-sidebar"),
-				)}
+			{createPortal(
+				<Softskills skills={fieldvalue} />,
+				document.getElementById("resume-sidebar"),
+			)}
 		</div>
 	);
 }

@@ -2,31 +2,31 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import PersonalInfo from "../display/personal-info";
 export default function PersonalInfoForm() {
-    const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(true);
 	const [inputFields, setInputFields] = useState([
 		{
-			name: "",
-			title: "",
-			phone: "",
-			email: "",
-			linkedin: "",
-			twitter: "",
+			name: "Tom Jones",
+			title: "Branch Manager",
+			phone: "555-899-0987",
+			email: "Mail@mail.com",
+			linkedin: "person@linkedin.com",
+			twitter: "person@twitter.com",
 		},
 	]);
-    const handleFormChange = (index, event) => {
+	const handleFormChange = (index, event) => {
 		let data = [...inputFields];
 		data[index][event.target.name] = event.target.value;
 		setInputFields(data);
-	}; 
+	};
 
-    setTimeout(() => {
+	setTimeout(() => {
 		setLoading(false);
 	}, 50);
 
-    if (loading) {
+	if (loading) {
 		return <div>Loading...</div>;
 	}
-    return (
+	return (
 		<>
 			<div>
 				<form action="">
@@ -78,7 +78,7 @@ export default function PersonalInfoForm() {
 										onChange={(event) => handleFormChange(index, event)}
 									/>
 								</label>
-                                <label>
+								<label>
 									<span>Twitter:</span>
 									<input
 										type="text"
