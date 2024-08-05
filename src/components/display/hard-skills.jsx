@@ -25,9 +25,6 @@ export default function Hardskills(props) {
 			skill.text = "Expert";
 			barWidth = skill.value;
 		}
-		{
-			console.log(barWidth + "hello");
-		}
 	});
 	return (
 		<div id="hard-skills" className="hard-skills">

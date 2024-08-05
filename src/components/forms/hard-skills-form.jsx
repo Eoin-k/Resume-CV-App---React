@@ -14,7 +14,6 @@ export default function HardSkillsForm() {
 		let data = [...fieldvalue];
 		data[index][event.target.name] = event.target.value;
 		setFieldValue(data);
-		console.log(data);
 	};
 	const addFields = (e) => {
 		e.preventDefault();
