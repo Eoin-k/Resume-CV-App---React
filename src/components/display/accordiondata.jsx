@@ -2,6 +2,8 @@ import ExperienceForm from "../forms/experience-form";
 import StatementForm from "../forms/statement-form";
 import EducationForm from "../forms/education-form";
 import PersonalInfoForm from "../forms/personal-info-form";
+import HardSkillsForm from "../forms/hard-skills-form";
+import SoftSkillsForm from "../forms/soft-skills-form";
 
 const data = [
 	{
@@ -23,6 +25,14 @@ const data = [
 	{
 		heading: "What are these thisng",
 		component: <StatementForm />,
+	},
+	{
+		heading: "Hard Skills",
+		component: <HardSkillsForm />,
+	},
+	{
+		heading: "Soft Skills",
+		component: <SoftSkillsForm />,
 	},
 ];
 

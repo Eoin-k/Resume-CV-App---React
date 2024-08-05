@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import Hardskills from "../display/hard-skills"
 
 export default function HardSkillsForm() {
 	const [fieldvalue, setFieldValue] = useState([
 		{
-			name: "",
+			title: "",
 			value: "",
 		},
 	]);
@@ -12,11 +13,12 @@ export default function HardSkillsForm() {
 		let data = [...fieldvalue];
 		data[index][event.target.name] = event.target.value;
 		setFieldValue(data);
+        console.log(data)
 	};
 	const addFields = (e) => {
 		e.preventDefault();
 		let newfield = {
-			name: "",
+			title: "",
 			value: "",
 		};
 		setFieldValue([...fieldvalue, newfield]);
@@ -51,15 +53,13 @@ export default function HardSkillsForm() {
 									placeholder="Title"
 									onChange={(event) => handleFormChange(index, event)}
 								/>
-								<input type="range" list = "values" onChange={(event) => handleFormChange(index,event)} />
+                                </label>
+                                <label>
+                                    <span>Select Skill level</span>
+								<input  type="range" step="20" name="value" value={input.value} onChange={(event) => handleFormChange(index,event)} 
+                                />
 							</label>
-							<datalist id="values">
-								<option value="0" label="Beginner"></option>
-								<option value="25" label="Knowledgeable"></option>
-								<option value="50" label="Intermediate"></option>
-								<option value="75" label="Advanced"></option>
-								<option value="100" label="Expert"></option>
-							</datalist>
+							
 
 							<button onClick={() => removeFields(index)}>Remove</button>
 						</div>
@@ -67,6 +67,10 @@ export default function HardSkillsForm() {
 				})}
 				<button onClick={addFields}>Add More Skills</button>
 			</form>
+            {createPortal(
+					<Hardskills skills={fieldvalue} />,
+					document.getElementById("resume-sidebar"),
+				)}
 		</div>
 	);
 }

@@ -1,0 +1,76 @@
+import { useState } from "react";
+import { createPortal } from "react-dom";
+import Softskills from "../display/soft-skills";
+
+export default function SoftSkillsForm() {
+	const [fieldvalue, setFieldValue] = useState([
+		{
+			title: "",
+			value: "",
+		},
+	]);
+	const handleFormChange = (index, event) => {
+		let data = [...fieldvalue];
+		data[index][event.target.name] = event.target.value;
+		setFieldValue(data);
+        console.log(data)
+	};
+	const addFields = (e) => {
+		e.preventDefault();
+		let newfield = {
+			title: "",
+			value: "",
+		};
+		setFieldValue([...fieldvalue, newfield]);
+	};
+
+	const removeFields = (index) => {
+		let data = [...fieldvalue];
+		data.splice(index, 1);
+		setFieldValue(data);
+	};
+	const [loading, setLoading] = useState(true);
+	setTimeout(() => {
+		setLoading(false);
+	}, 5);
+
+	if (loading) {
+		return <div>Loading...</div>;
+	}
+
+	return (
+		<div>
+			<form action="">
+				{fieldvalue.map((input, index) => {
+					return (
+						<div key={index}>
+							<label>
+								<span>Skill Title</span>
+								<input
+									type="text"
+									value={input.title}
+									name="title"
+									placeholder="Title"
+									onChange={(event) => handleFormChange(index, event)}
+								/>
+                                </label>
+                                <label>
+                                    <span>Select Skill level</span>
+								<input  type="range" step="20" name="value" value={input.value} onChange={(event) => handleFormChange(index,event)} 
+                                />
+							</label>
+							
+
+							<button onClick={() => removeFields(index)}>Remove</button>
+						</div>
+					);
+				})}
+				<button onClick={addFields}>Add More Skills</button>
+			</form>
+            {createPortal(
+					<Softskills skills={fieldvalue} />,
+					document.getElementById("resume-sidebar"),
+				)}
+		</div>
+	);
+}
