@@ -5,7 +5,7 @@ import Softskills from "../display/soft-skills";
 export default function SoftSkillsForm() {
 	const [fieldvalue, setFieldValue] = useState([
 		{
-			title: "Skill 1",
+			title: "Leadership",
 			value: "60",
 			text: "",
 		},
@@ -66,11 +66,11 @@ export default function SoftSkillsForm() {
 								/>
 							</label>
 
-							<button onClick={() => removeFields(index)}>Remove</button>
+							<button className="delete-btn" onClick={() => removeFields(index)}>Remove</button>
 						</div>
 					);
 				})}
-				<button onClick={addFields}>Add More Skills</button>
+				<button className="add-btn" onClick={addFields}>Add More Skills</button>
 			</form>
 			{createPortal(
 				<Softskills skills={fieldvalue} />,

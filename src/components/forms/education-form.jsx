@@ -8,7 +8,7 @@ export default function EducationForm() {
 			institution: "Harvard",
 			description:
 				"Self Explanatory you can put in a longer description about some of the things that you learned in college",
-			datefrom: "2022-08-01",
+			datefrom: "Sep 2019",
 			datetill: "",
 		},
 	]);
@@ -81,7 +81,7 @@ export default function EducationForm() {
 								<label>
 									<span>Date From:</span>
 									<input
-										type="date"
+										type="text"
 										name="datefrom"
 										value={input.datefrom}
 										onChange={(event) => handleFormChange(index, event)}
@@ -90,18 +90,18 @@ export default function EducationForm() {
 								<label>
 									<span>Date to:</span>
 									<input
-										type="date"
+										type="text"
 										name="datetill"
 										value={input.datetill}
 										onChange={(event) => handleFormChange(index, event)}
 									/>
 								</label>
-								<button onClick={() => removeFields(index)}>Remove</button>
+								<button className="delete-btn" onClick={() => removeFields(index)}>Remove Item</button>
 							</div>
 						);
 					})}
 
-					<button onClick={addFields}>Add more education</button>
+					<button className="add-btn" onClick={addFields}>Add more education</button>
 				</form>
 
 				{createPortal(

@@ -28,7 +28,7 @@ export default function StatementForm() {
 						textAlign: "left",
 					}}
 				>
-					<span>Statement Info</span>
+					<span>Enter your personal statement here:</span>
 					<textarea
 						id="statement-form"
 						value={statement}

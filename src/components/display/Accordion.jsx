@@ -5,10 +5,6 @@ import { useState } from "react";
 import data from "./accordiondata";
 import AccordionItem from "./accordionitem";
 
-const handleItemClick = (index) => {
-	setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
-};
-
 const Accordion = () => {
 	const [activeIndex, setActiveIndex] = useState(null);
 

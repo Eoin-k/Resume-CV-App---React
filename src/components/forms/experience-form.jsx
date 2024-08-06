@@ -7,7 +7,7 @@ export default function ExperienceForm() {
 			title: "Head Manager",
 			company: "Coca-Cola",
 			description: "Done a lot of cool stuff here",
-			datefrom: "2022-09-01",
+			datefrom: "Aug 2022",
 			datetill: "Present",
 		},
 	]);
@@ -80,7 +80,7 @@ export default function ExperienceForm() {
 								<label>
 									<span>Date From:</span>
 									<input
-										type="date"
+										type="text"
 										name="datefrom"
 										value={input.datefrom}
 										onChange={(event) => handleFormChange(index, event)}
@@ -89,18 +89,18 @@ export default function ExperienceForm() {
 								<label>
 									<span>Date to:</span>
 									<input
-										type="date"
+										type="text"
 										name="datetill"
 										value={input.datetill}
 										onChange={(event) => handleFormChange(index, event)}
 									/>
 								</label>
-								<button onClick={() => removeFields(index)}>Remove</button>
+								<button className="delete-btn" onClick={() => removeFields(index)}>Remove</button>
 							</div>
 						);
 					})}
 				</form>
-				<button onClick={addFields}>Add Another Job</button>
+				<button className="add-btn" onClick={addFields}>Add Another Job</button>
 				{createPortal(
 					<Experience jobs={inputFields} />,
 					document.getElementById("resume-content"),
